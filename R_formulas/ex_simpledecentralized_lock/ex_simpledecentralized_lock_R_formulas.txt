@@ -1,4 +1,18 @@
-Config1 = (from n3)
+R = (from size n3)
+1-2,12:
+          \forall N1 . \forall N2 . N1 == N2 | ~has_lock(N1) | ~has_lock(N2)
+3-11,13-30:
+          \forall N1 . \forall N2 . \forall N3 . ~has_lock(N1) | ~message(N2,N3)
+31-66:
+          \forall S1, D1, S2, D2. ((S1 == S2) & (D1 == D2)) | ~message(S1, D1) | ~message(S2, D2)
+67-69:
+          \forall N1 . \forall N2 . N1 == N2 | ~start_nodeIS(N1) | ~start_nodeIS(N2)
+70:
+          \exists N1 . start_nodeIS(N1)
+71:
+          \exists N1 . \exists N2 . \exists N3 . has_lock(N1) | message(N2,N3)
+
+config1 = (from n3)
 1-16:     \forall N1 . \forall N2 . ~message(N2,N1)
 17-20:    \forall N1 . has_lock(N1) | ~start_nodeIS(N1)
 21-26:    \forall N1 . \forall N2 . N1 == N2 | ~has_lock(N1) | ~has_lock(N2)
@@ -46,18 +60,3 @@ config7 = (from size n5)
 11-200:   \forall S1, D1, S2, D2. ((S1 == S2) & (D1 == D2)) | (S1 == D1) | (S2 == D2)) | ~message(S1, D1) | ~message(S2, D2)
 201-210:  \forall N1 . \forall N2 . N1 == N2 | ~start_nodeIS(N1) | ~start_nodeIS(N2)
 211-215:  \forall N . \exists S . \exists D . (~(N == S) & ~(N == D) & ~(S == D) & message(S,D)) | (~(N == S) & start_nodeIS(S))
-
-
-R = (from size n3)
-1-2,12:
-          \forall N1 . \forall N2 . N1 == N2 | ~has_lock(N1) | ~has_lock(N2)
-3-11,13-30:
-          \forall N1 . \forall N2 . \forall N3 . ~has_lock(N1) | ~message(N2,N3)
-31-66:
-          \forall S1, D1, S2, D2. ((S1 == S2) & (D1 == D2)) | ~message(S1, D1) | ~message(S2, D2)
-67-69:
-          \forall N1 . \forall N2 . N1 == N2 | ~start_nodeIS(N1) | ~start_nodeIS(N2)
-70:
-          \exists N1 . start_nodeIS(N1)
-71:
-          \exists N1 . \exists N2 . \exists N3 . has_lock(N1) | message(N2,N3)
