@@ -18,12 +18,10 @@ The structure of the repository is as follows:
   - In both output types each clause starts with a numerical ID that is referenced by the derived closed formulas (see `R_formulas/`).
 
 * `R_formulas/`: Contains for each analyzed protocol the following details:
-  1. `[protocolname]_R_formulas.txt`: All the derived closed FOL formulas describing R. 
+  1. `[protocolname].ivy`: The specification of the distributed protocol in the ivy language.
+  2. `[protocolname]_R_formulas.txt`: All the derived closed FOL formulas describing R. 
     - It starts with the set of invariants derived from the complete set of reachable states of the protocol.
     - Then, for each configuration of the protocol, it contains a set of invariants derived from the set of reachable states belonging to that configuration.
     - Each formula set starts with an identifier (e.g. R, of config1), the domain size where the saturated formula was encountered and a refernce to the clausal representation of the minimization result that was the base of the quantifier inference.
     - Each quantified FOL formula starts with a set of numbers indicating the clauses of the minimization result that are encoded by that formula (see the referenced files in `espresso_outputs/`.
     - Reminder: The disjunction of these configuration-conjunctions is equivalent with the conjunction of the R-invariants.
-
-  3. `[protocolname].ivy`: The specification of the distributed protocol in the ivy language.
-
