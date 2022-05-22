@@ -1,0 +1,35 @@
+1    : ~aborted(r1) | ~committed(r1)
+4    : ~aborted(r2) | ~committed(r2)
+7    : ~aborted(r3) | ~committed(r3)
+
+2    : ~aborted(r1) | ~prepared(r1)
+5    : ~aborted(r2) | ~prepared(r2)
+8    : ~aborted(r3) | ~prepared(r3)
+
+3    : ~aborted(r1) | ~working(r1)
+6    : ~aborted(r2) | ~working(r2)
+9    : ~aborted(r3) | ~working(r3)
+
+10   : ~committed(r1) | ~prepared(r1)
+12   : ~committed(r2) | ~prepared(r2)
+14   : ~committed(r3) | ~prepared(r3)
+
+11   : ~committed(r1) | ~working(r1)
+13   : ~committed(r2) | ~working(r2)
+15   : ~committed(r3) | ~working(r3)
+
+16   : ~prepared(r1) | ~working(r1)
+17   : ~prepared(r2) | ~working(r2)
+18   : ~prepared(r3) | ~working(r3)
+
+19   : aborted(r1) | committed(r1) | prepared(r1) | working(r1)
+20   : aborted(r2) | committed(r2) | prepared(r2) | working(r2)
+21   : aborted(r3) | committed(r3) | prepared(r3) | working(r3)
+
+22   : aborted(r1) | committed(r2) | prepared(r1) | prepared(r2) | working(r1)
+23   : aborted(r1) | committed(r3) | prepared(r1) | prepared(r3) | working(r1)
+24   : aborted(r2) | committed(r1) | prepared(r1) | prepared(r2) | working(r2)
+25   : aborted(r2) | committed(r3) | prepared(r2) | prepared(r3) | working(r2)
+26   : aborted(r3) | committed(r1) | prepared(r1) | prepared(r3) | working(r3)
+27   : aborted(r3) | committed(r2) | prepared(r2) | prepared(r3) | working(r3)
+

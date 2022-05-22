@@ -1,0 +1,56 @@
+1    : held() | ~grant_msg(n1)
+2    : held() | ~grant_msg(n2)
+3    : held() | ~grant_msg(n3)
+
+4    : held() | ~holds_lock(n1)
+5    : held() | ~holds_lock(n2)
+6    : held() | ~holds_lock(n3)
+
+7    : held() | ~unlock_msg(n1)
+8    : held() | ~unlock_msg(n2)
+9    : held() | ~unlock_msg(n3)
+
+10   : ~grant_msg(n1) | ~grant_msg(n2)
+11   : ~grant_msg(n1) | ~grant_msg(n3)
+18   : ~grant_msg(n2) | ~grant_msg(n3)
+
+12   : ~grant_msg(n1) | ~holds_lock(n1)
+13   : ~grant_msg(n1) | ~holds_lock(n2)
+14   : ~grant_msg(n1) | ~holds_lock(n3)
+19   : ~grant_msg(n2) | ~holds_lock(n1)
+20   : ~grant_msg(n2) | ~holds_lock(n2)
+21   : ~grant_msg(n2) | ~holds_lock(n3)
+25   : ~grant_msg(n3) | ~holds_lock(n1)
+26   : ~grant_msg(n3) | ~holds_lock(n2)
+27   : ~grant_msg(n3) | ~holds_lock(n3)
+
+15   : ~grant_msg(n1) | ~unlock_msg(n1)
+16   : ~grant_msg(n1) | ~unlock_msg(n2)
+17   : ~grant_msg(n1) | ~unlock_msg(n3)
+22   : ~grant_msg(n2) | ~unlock_msg(n1)
+23   : ~grant_msg(n2) | ~unlock_msg(n2)
+24   : ~grant_msg(n2) | ~unlock_msg(n3)
+28   : ~grant_msg(n3) | ~unlock_msg(n1)
+29   : ~grant_msg(n3) | ~unlock_msg(n2)
+30   : ~grant_msg(n3) | ~unlock_msg(n3)
+
+31   : ~holds_lock(n1) | ~holds_lock(n2)
+32   : ~holds_lock(n1) | ~holds_lock(n3)
+36   : ~holds_lock(n2) | ~holds_lock(n3)
+
+33   : ~holds_lock(n1) | ~unlock_msg(n1)
+34   : ~holds_lock(n1) | ~unlock_msg(n2)
+35   : ~holds_lock(n1) | ~unlock_msg(n3)
+37   : ~holds_lock(n2) | ~unlock_msg(n1)
+38   : ~holds_lock(n2) | ~unlock_msg(n2)
+39   : ~holds_lock(n2) | ~unlock_msg(n3)
+40   : ~holds_lock(n3) | ~unlock_msg(n1)
+41   : ~holds_lock(n3) | ~unlock_msg(n2)
+42   : ~holds_lock(n3) | ~unlock_msg(n3)
+
+43   : ~unlock_msg(n1) | ~unlock_msg(n2)
+44   : ~unlock_msg(n1) | ~unlock_msg(n3)
+45   : ~unlock_msg(n2) | ~unlock_msg(n3)
+
+46   : grant_msg(n1) | grant_msg(n2) | grant_msg(n3) | holds_lock(n1) | holds_lock(n2) | holds_lock(n3) | unlock_msg(n1) | unlock_msg(n2) | unlock_msg(n3) | ~held()
+

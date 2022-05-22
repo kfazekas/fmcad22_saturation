@@ -1,0 +1,49 @@
+R = (from size n3)
+1-3:   \forall N1 . held() | ~grant_msg(N1)
+4-6:   \forall N1 . held() | ~holds_lock(N1)
+7-9:   \forall N1 . held() | ~unlock_msg(N1)
+10-11,18:
+       \forall N1 . \forall N2 . N1 == N2 | ~grant_msg(N1) | ~grant_msg(N2)
+12-14,19-21,25-27:
+       \forall N1 . \forall N2 . ~grant_msg(N2) | ~holds_lock(N1)
+15-17,22-24,28-30:
+       \forall N1 . \forall N2 . ~grant_msg(N2) | ~unlock_msg(N1)
+31-32,36:
+       \forall N1 . \forall N2 . N1 == N2 | ~holds_lock(N1) | ~holds_lock(N2)
+33-35,37-42:
+       \forall N1 . \forall N2 . ~holds_lock(N2) | ~unlock_msg(N1)
+43-45:
+       \forall N1 . \forall N2 . N1 == N2 | ~unlock_msg(N1) | ~unlock_msg(N2)
+46:    \exists N .  grant_msg(N) | holds_lock(N) | unlock_msg(N) | ~held()
+
+
+config1 = (based on n4, ['A','B','C','E','I'], cutoff: n2)
+1-4:    \forall N1 . ~grant_msg(N1)
+5:      ~held()
+6-9:    \forall N1 . ~holds_lock(N1)
+10-13:  \forall N1 . ~unlock_msg(N1)
+
+
+config2 = (based on n4, ['D','G','F','K','J','P','O','U'], cutoff: n3)
+1:      held()
+2-5:    \forall N1 . ~holds_lock(N1)
+6-9:    \forall N1 . ~unlock_msg(N1)
+10-15:  \forall N1 . \forall N2 . N1 == N2 | ~grant_msg(N1) | ~grant_msg(N2)
+16:     \exists N1 . grant_msg(N1)
+
+
+config3 = (based on n4, ['H','M','L','R','Q','W','V','Z'], cutoff: n3)
+1:      held()
+2-5:    \forall N1 . ~grant_msg(N1)
+6-9:    \forall N1 . ~unlock_msg(N1)
+10-15:  \forall N1 . \forall N2 . N1 == N2 | ~holds_lock(N1) | ~holds_lock(N2)
+16:     \exists N1 . holds_lock(N1)
+
+
+config4 = (based on n4, ['N','T','S','Y','X','ZB','ZA','ZC'], cutoff: n3)
+1:      held()
+2-5:    \forall N1 . ~grant_msg(N1)
+6-9:    \forall N1 . ~holds_lock(N1)
+10-15:  \forall N1 . \forall N2 . N1 == N2 | ~unlock_msg(N1) | ~unlock_msg(N2)
+16:     \exists N1 . unlock_msg(N1)
+
