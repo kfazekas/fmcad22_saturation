@@ -1,6 +1,7 @@
-Result of espresso in clause-form:
 1    : ~has_lock(n1) | ~has_lock(n2)
 2    : ~has_lock(n1) | ~has_lock(n3)
+12   : ~has_lock(n2) | ~has_lock(n3)
+
 3    : ~has_lock(n1) | ~message(n1,n1)
 4    : ~has_lock(n1) | ~message(n1,n2)
 5    : ~has_lock(n1) | ~message(n1,n3)
@@ -10,7 +11,6 @@ Result of espresso in clause-form:
 9    : ~has_lock(n1) | ~message(n3,n1)
 10   : ~has_lock(n1) | ~message(n3,n2)
 11   : ~has_lock(n1) | ~message(n3,n3)
-12   : ~has_lock(n2) | ~has_lock(n3)
 13   : ~has_lock(n2) | ~message(n1,n1)
 14   : ~has_lock(n2) | ~message(n1,n2)
 15   : ~has_lock(n2) | ~message(n1,n3)
@@ -29,6 +29,7 @@ Result of espresso in clause-form:
 28   : ~has_lock(n3) | ~message(n3,n1)
 29   : ~has_lock(n3) | ~message(n3,n2)
 30   : ~has_lock(n3) | ~message(n3,n3)
+
 31   : ~message(n1,n1) | ~message(n1,n2)
 32   : ~message(n1,n1) | ~message(n1,n3)
 33   : ~message(n1,n1) | ~message(n2,n1)
@@ -65,11 +66,14 @@ Result of espresso in clause-form:
 64   : ~message(n3,n1) | ~message(n3,n2)
 65   : ~message(n3,n1) | ~message(n3,n3)
 66   : ~message(n3,n2) | ~message(n3,n3)
+
 67   : ~start_nodeIS(n1) | ~start_nodeIS(n2)
 68   : ~start_nodeIS(n1) | ~start_nodeIS(n3)
 69   : ~start_nodeIS(n2) | ~start_nodeIS(n3)
+
 70   : start_nodeIS(n1) | start_nodeIS(n2) | start_nodeIS(n3)
+
 71   : has_lock(n1) | has_lock(n2) | has_lock(n3) | message(n1,n1) | message(n1,n2) | message(n1,n3) | message(n2,n1) | message(n2,n2) | message(n2,n3) | message(n3,n1) | message(n3,n2) | message(n3,n3)
-#Clauses: 71
+
 
 
