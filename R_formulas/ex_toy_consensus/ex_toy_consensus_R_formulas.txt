@@ -1,4 +1,4 @@
-R = (based on n3q3v3)
+R = (cutoff: n3q3v3, see ex_toy_consensus_n3q3v3_minR_CNF)
 1-18:  \forall N1 . \forall Q1 . \forall V1 . ~member(N1,Q1) | vote(N1,V1) | ~chosenAt(Q1,V1)
 19-27: \forall N1 . \forall V1 . ~didNotVote(N1) | ~vote(N1,V1)
 28-36: \forall N1 . \forall V1 . \forall V2 . V1 == V2 | ~vote(N1,V1) | ~vote(N1,V2)
@@ -6,29 +6,29 @@ R = (based on n3q3v3)
 40-42: \forall N1 . \exists V1 . didNotVote(N1) | vote(N1,V1)
 43-51: \forall Q1 . \forall V1 . \exists N1 . \exists V2 . chosenAt(Q1,V1) | (member(N1,Q1) && didNotVote(N1)) | (member(N1,Q1) && V1 != V2 && vote(N1,V2))
 
-C1 =
+C1 = (manually inferred)
 \forall Q1 . \forall V1 . ~chosenAt(Q1,V1)
 \forall V1 . ~decision(V1)
 \forall N1 . didNotVote(N1)
 \forall N1 . \forall V1 . ~vote(N1,V1)
 
-C2 = 
+C2 = (manually inferred)
 \forall Q1 . \forall V1 . ~chosenAt(Q1,V1)
 \forall V1 . ~decision(V1)
 \exists N1 . didNotVote(N1)
 \exists N1 . \exists V1 . vote(N1,V1)
 
-C3 =
+C3 = (manually inferred)
 \forall Q1 . \forall V1 . ~chosenAt(Q1,V1)
 \forall V1 . ~decision(V1)
 \forall N1 . \exists V1 . didNotVote(N1) | vote(N1,V1)
 
-C4 =
+C4 = (manually inferred)
 \exists Q1 . \exists V1 . chosenAt(Q1,V1)
 \forall V1 . ~decision(V1)
 \forall N1 . \exists V1 . didNotVote(N1) | vote(N1,V1)
 
-C5 =
+C5 = (manually inferred)
 \exists Q1 . \exists V1 . chosenAt(Q1,V1)
 \exists V1 . decision(V1)
 \forall N1 . \exists V1 . didNotVote(N1) | vote(N1,V1)

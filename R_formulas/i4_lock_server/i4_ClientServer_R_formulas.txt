@@ -1,14 +1,14 @@
-R = (based on size c3s2, see clauses below)
+R = (cutoff: c3s2, see i4_lock_server_c3s2_minR_CNF)
 1-2,4-5,7-9: \forall S1 . \forall C1 . \forall C2 . C1 == C2 | ~link(C1,S1) | ~link(C2,S1)
 3,6,8,10,11-12:
              \forall C1 . \forall S1 . ~link(C1,S1) | ~semaphore(S1)
 13-14:       \forall S1 . \exists C1 . link(C1,S1) | semaphore(S1)
 
-config1 = (based on size c2s2, ['A'])
-1-2:      \forall C1 . \forall S1 . ~link(C1,S1)
-3-6:      \forall S1 . semaphore(S1)
+config1 = (cutoff: c2s2, see i4_lock_server_c2s2_conf1_minCNF)
+1-2:      \forall S1 . semaphore(S1)
+3-6:      \forall C1 . \forall S1 . ~link(C1,S1)
 
-config2 = (based on size c3s3, ['B','C','D'])
+config2 = (cutoff: c3s3, see i4_lock_server_c3s3_conf2_minCNF)
 1-2,4-5,7-8,10,12,14:
           \forall S1 . \forall C1 . \forall C2 . C1 == C2 | ~link(C1,S1) | ~link(C2,S1)
 3,6,9,11,13,15,16-18:
@@ -17,7 +17,7 @@ config2 = (based on size c3s3, ['B','C','D'])
 20-22:    \forall S1 . \exists C1 . link(C1,S1) | semaphore(S1)
 23:       \exists C1 . \exists S1 . link(C1,S1)
 
-config3 = (based on size c3s2, ['C','D'])
+config3 = (cutoff: c3s2, see i4_lock_server_c3s2_conf3_minCNF)
 1-2:      \forall S1 . ~semaphore(S1)
 3-8:      \forall C1 . \forall C2 . \forall S1 . C1 == C2 | ~link(C1,S1) | ~link(C2,S1)
 9-10:     \forall S1 . \exists C1 . link(C1,S1)
