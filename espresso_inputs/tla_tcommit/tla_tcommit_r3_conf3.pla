@@ -1,0 +1,10 @@
+.i 12
+.o 1
+.ilb aborted(r1) aborted(r2) aborted(r3) committed(r1) committed(r2) committed(r3) prepared(r1) prepared(r2) prepared(r3) working(r1) working(r2) working(r3)
+.ob out
+000000100011 1
+000000010101 1
+000000001110 1
+000000110001 1
+000000101010 1
+000000011100 1

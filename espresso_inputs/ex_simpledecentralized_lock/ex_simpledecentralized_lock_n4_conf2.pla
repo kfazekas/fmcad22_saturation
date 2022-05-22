@@ -1,0 +1,8 @@
+.i 24
+.o 1
+.ilb has_lock(n1) has_lock(n2) has_lock(n3) has_lock(n4) message(n1,n1) message(n1,n2) message(n1,n3) message(n1,n4) message(n2,n1) message(n2,n2) message(n2,n3) message(n2,n4) message(n3,n1) message(n3,n2) message(n3,n3) message(n3,n4) message(n4,n1) message(n4,n2) message(n4,n3) message(n4,n4) start_nodeIS(n1) start_nodeIS(n2) start_nodeIS(n3) start_nodeIS(n4)
+.ob out
+000000000100000000000100 1
+000000000000000000010001 1
+000010000000000000001000 1
+000000000000001000000010 1

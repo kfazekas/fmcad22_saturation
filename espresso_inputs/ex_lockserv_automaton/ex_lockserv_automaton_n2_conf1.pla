@@ -1,0 +1,8 @@
+.i 9
+.o 1
+.ilb grant_msg(n1) grant_msg(n2) held() holds_lock(n1) holds_lock(n2) lock_msg(n1) lock_msg(n2) unlock_msg(n1) unlock_msg(n2)
+.ob out
+000000000 1
+000001000 1
+000000100 1
+000001100 1

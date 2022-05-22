@@ -1,0 +1,5 @@
+.i 8
+.o 1
+.ilb aborted(r1) aborted(r2) committed(r1) committed(r2) prepared(r1) prepared(r2) working(r1) working(r2)
+.ob out
+00001100 1

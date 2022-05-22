@@ -1,0 +1,5 @@
+.i 6
+.o 1
+.ilb link(c1,s1) link(c1,s2) link(c2,s1) link(c2,s2) semaphore(s1) semaphore(s2)
+.ob out
+000011 1
