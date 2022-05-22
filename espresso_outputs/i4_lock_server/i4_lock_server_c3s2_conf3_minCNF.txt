@@ -1,0 +1,12 @@
+1    : ~semaphore(s1)
+2    : ~semaphore(s2)
+
+3    : ~link(c1,s1) | ~link(c2,s1)
+4    : ~link(c1,s1) | ~link(c3,s1)
+5    : ~link(c1,s2) | ~link(c2,s2)
+6    : ~link(c1,s2) | ~link(c3,s2)
+7    : ~link(c2,s1) | ~link(c3,s1)
+8    : ~link(c2,s2) | ~link(c3,s2)
+
+9    : link(c1,s1) | link(c2,s1) | link(c3,s1)
+10   : link(c1,s2) | link(c2,s2) | link(c3,s2)

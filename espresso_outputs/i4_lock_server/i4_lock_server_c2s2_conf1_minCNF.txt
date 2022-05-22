@@ -1,0 +1,7 @@
+1    : semaphore(s1)
+2    : semaphore(s2)
+
+3    : ~link(c1,s1)
+4    : ~link(c1,s2)
+5    : ~link(c2,s1)
+6    : ~link(c2,s2)

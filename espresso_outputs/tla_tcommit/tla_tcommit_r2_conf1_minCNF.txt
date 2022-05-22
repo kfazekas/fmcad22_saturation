@@ -1,0 +1,11 @@
+1    : working(r1)
+2    : working(r2)
+
+3    : ~aborted(r1)
+4    : ~aborted(r2)
+
+5    : ~committed(r1)
+6    : ~committed(r2)
+
+7    : ~prepared(r1)
+8    : ~prepared(r2)

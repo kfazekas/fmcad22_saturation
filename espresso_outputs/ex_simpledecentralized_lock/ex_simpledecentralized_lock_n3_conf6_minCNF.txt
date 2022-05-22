@@ -1,0 +1,22 @@
+1    : ~has_lock(n1)
+2    : ~has_lock(n2)
+3    : ~has_lock(n3)
+
+4    : ~message(n1,n2)
+5    : ~message(n1,n3)
+6    : ~message(n2,n1)
+7    : ~message(n2,n3)
+8    : ~message(n3,n1)
+9    : ~message(n3,n2)
+
+10   : ~message(n1,n1) | ~message(n2,n2)
+11   : ~message(n1,n1) | ~message(n3,n3)
+12   : ~message(n2,n2) | ~message(n3,n3)
+
+13   : ~start_nodeIS(n1) | ~start_nodeIS(n2)
+14   : ~start_nodeIS(n1) | ~start_nodeIS(n3)
+15   : ~start_nodeIS(n2) | ~start_nodeIS(n3)
+
+16   : message(n1,n1) | message(n2,n2) | start_nodeIS(n1) | start_nodeIS(n2)
+17   : message(n1,n1) | message(n3,n3) | start_nodeIS(n1) | start_nodeIS(n3)
+18   : message(n2,n2) | message(n3,n3) | start_nodeIS(n2) | start_nodeIS(n3)

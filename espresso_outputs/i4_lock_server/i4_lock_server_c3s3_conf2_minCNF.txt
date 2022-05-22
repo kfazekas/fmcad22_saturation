@@ -1,0 +1,27 @@
+1    : ~link(c1,s1) | ~link(c2,s1)
+2    : ~link(c1,s1) | ~link(c3,s1)
+4    : ~link(c1,s2) | ~link(c2,s2)
+5    : ~link(c1,s2) | ~link(c3,s2)
+7    : ~link(c1,s3) | ~link(c2,s3)
+8    : ~link(c1,s3) | ~link(c3,s3)
+10   : ~link(c2,s1) | ~link(c3,s1)
+12   : ~link(c2,s2) | ~link(c3,s2)
+14   : ~link(c2,s3) | ~link(c3,s3)
+
+3    : ~link(c1,s1) | ~semaphore(s1)
+6    : ~link(c1,s2) | ~semaphore(s2)
+9    : ~link(c1,s3) | ~semaphore(s3)
+11   : ~link(c2,s1) | ~semaphore(s1)
+13   : ~link(c2,s2) | ~semaphore(s2)
+15   : ~link(c2,s3) | ~semaphore(s3)
+16   : ~link(c3,s1) | ~semaphore(s1)
+17   : ~link(c3,s2) | ~semaphore(s2)
+18   : ~link(c3,s3) | ~semaphore(s3)
+
+19   : semaphore(s1) | semaphore(s2) | semaphore(s3)
+
+20   : link(c1,s1) | link(c2,s1) | link(c3,s1) | semaphore(s1)
+21   : link(c1,s2) | link(c2,s2) | link(c3,s2) | semaphore(s2)
+22   : link(c1,s3) | link(c2,s3) | link(c3,s3) | semaphore(s3)
+
+23   : link(c1,s1) | link(c1,s2) | link(c1,s3) | link(c2,s1) | link(c2,s2) | link(c2,s3) | link(c3,s1) | link(c3,s2) | link(c3,s3)
