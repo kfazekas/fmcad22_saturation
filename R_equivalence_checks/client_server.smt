@@ -51,32 +51,30 @@
 
         ;at least one locked, at least one linked
         (and
+            (exists ((c Client) (s Server))
+                (link c s)
+            )
             (exists ((s Server))
                 (semaphore s)
             )
-            (exists ((s Server))
-                (not(semaphore s))
-            )
             (forall ((s Server))
-                (=>
-                    (not (semaphore s))
-                    (exists ((c Client))
+                (exists ((c Client))
+                    (or
+                        (semaphore s)
                         (link c s)
                     )
                 )
             )
             (forall ((s Server) (c Client))
-                (=>
-                    (semaphore s)
+                (or
+                    (not (semaphore s))
                     (not(link c s))
                 )
             )
             (forall ((s Server) (c1 Client) (c2 Client))
-                (=>
-                    (and
-                        (link c1 s)
-                        (link c2 s)
-                    )
+                (or
+                    (not (link c1 s))
+                    (not (link c2 s))
                     (= c1 c2)
                 )
             )
@@ -89,12 +87,8 @@
             )
             (forall ((s Server) (c1 Client) (c2 Client))
                 (or
-                    (not
-                        (and
-                            (link c1 s)
-                            (link c2 s)
-                        )
-                    )
+                    (not (link c1 s))
+                    (not (link c2 s))
                     (= c1 c2)
                 )
             )

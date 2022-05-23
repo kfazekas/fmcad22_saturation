@@ -55,26 +55,30 @@
         ;conjunction of invariants
         (and
             (forall ((n node) (v value))
-                (=>
-                    (didNotVote n)
+                (or
+                    (not (didNotVote n))
                     (not (vote n v))
                 )
             )
             (forall ((n node))
                 (exists ((v value))
-                    (or (didNotVote n) (vote n v))
+                    (or 
+                        (didNotVote n)
+                        (vote n v)
+                    )
                 )
             )
             (forall ((n node) (v1 value) (v2 value))
-                (=>
-                    (and (vote n v1) (vote n v2))
+                (or
+                    (not (vote n v1))
+                    (not (vote n v2))
                     (= v1 v2)
                 )
             )
             (forall ((v value))
                 (exists ((q quorum))
-                    (=>
-                        (decision v)
+                    (or
+                        (not (decision v)
                         (chosenAt q v)
                     )
                 )

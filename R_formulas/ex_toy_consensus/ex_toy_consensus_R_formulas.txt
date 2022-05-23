@@ -17,19 +17,23 @@ C2 = (manually inferred)
 \forall V1 . ~decision(V1)
 \exists N1 . didNotVote(N1)
 \exists N1 . \exists V1 . vote(N1,V1)
+\forall N1 . \forall V1 . \forall V2 . ~vote(N1, V1) | ~vote(N1, V2) | V1 = V2
 
 C3 = (manually inferred)
 \forall Q1 . \forall V1 . ~chosenAt(Q1,V1)
 \forall V1 . ~decision(V1)
 \forall N1 . \exists V1 . didNotVote(N1) | vote(N1,V1)
+\forall N1 . \forall V1 . \forall V2 . ~vote(N1, V1) | ~vote(N1, V2) | V1 = V2
 
 C4 = (manually inferred)
 \exists Q1 . \exists V1 . chosenAt(Q1,V1)
 \forall V1 . ~decision(V1)
 \forall N1 . \exists V1 . didNotVote(N1) | vote(N1,V1)
+\forall N1 . \forall V1 . \forall V2 . ~vote(N1, V1) | ~vote(N1, V2) | V1 = V2
 
 C5 = (manually inferred)
 \exists Q1 . \exists V1 . chosenAt(Q1,V1)
 \exists V1 . decision(V1)
 \forall N1 . \exists V1 . didNotVote(N1) | vote(N1,V1)
+\forall N1 . \forall V1 . \forall V2 . ~vote(N1, V1) | ~vote(N1, V2) | V1 = V2
 
