@@ -10,7 +10,7 @@ The structure of the repository is as follows:
   1. `[protocolname]_[R-cutoff-size]_R.pla`: The .pla file generated from the reachable states for the `R-cutoff-size` of domains.
   2. `[protocolname]_[conf-cutoff-size]_conf[conf-ID].pla`: The .pla generated from the states that are belonging to the configuration identified with `conf-ID` (while considering `conf-cutoff-size` domain sizes).
 
-  To try out our minimization step, use the following command:
+  The minimization step basically invokes the following command:
   ```
   espresso -Dexact -epos `[protocolname]_[R-cutoff-size]_R.pla`
   ```
