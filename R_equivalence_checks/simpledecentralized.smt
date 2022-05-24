@@ -14,26 +14,29 @@
         ;constraints
         (and
             (forall ((n1 Node) (n2 Node))
-                (=>
-                    (and (has_lock n1) (has_lock n2))
+                (or
+                    (not (has_lock n1))
+                    (not (has_lock n2))
                     (= n1 n2)
                 )
             )
             (forall ((n Node) (s Node) (d Node))
-                (=>
-                    (has_lock n)
+                (or
+                    (not (has_lock n))
                     (not(message s d))
                 )
             )
             (forall ((s1 Node) (d1 Node) (s2 Node) (d2 Node))
-                (=>
-                    (and (message s1 d1) (message s2 d2))
+                (or
+                    (not (message s1 d1))
+                    (not (message s2 d2))
                     (and (= s1 s2) (= d1 d2))
                 )
             )
             (forall ((n1 Node) (n2 Node))
-                (=>
-                    (and (start_node n1) (start_node n2))
+                (or
+                    (not (start_node n1))
+                    (not (start_node n2))
                     (= n1 n2)
                 )
             )  
@@ -41,13 +44,16 @@
                 (start_node n)
             )
             (exists ((n Node) (s Node) (d Node))
-                (or (has_lock n) (message s d))
+                (or 
+                    (has_lock n)
+                    (message s d)
+                )
             )
         )
 
         ;configs
         (or
-            ;A
+            ;config1
             (and
                 (forall ((n1 Node) (n2 Node))
                     (not (message n2 n1))
@@ -70,7 +76,7 @@
                 )
             )
 
-            ;B
+            ;config2
             (and
                 ;no one has lock
                 (forall ((n Node))
@@ -101,7 +107,7 @@
                 
             )
 
-            ;C
+            ;config3
             (and
                 ;no one has lock
                 (forall ((n Node))
@@ -143,7 +149,7 @@
                 )
             )
 
-            ;D
+            ;config4
             (and
                 (forall ((n1 Node) (n2 Node))
                     (not (message n2 n1))
@@ -175,7 +181,7 @@
                 )
             )
 
-            ;E
+            ;config5
             (and
                 (forall ((n1 Node))
                     (not (has_lock n1))
@@ -214,7 +220,7 @@
                 )
             )
 
-            ;F
+            ;config6
             (and
                 (forall ((n1 Node))
                     (not (has_lock n1))
@@ -252,7 +258,7 @@
                 )
             )
 
-            ;G
+            ;config7
             (and
                 (forall ((n Node))
                     (not (has_lock n))

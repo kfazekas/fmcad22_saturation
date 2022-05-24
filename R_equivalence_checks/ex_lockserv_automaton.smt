@@ -96,7 +96,7 @@
 
         ;disjunction of configs
         (or
-            ;A
+            ;config1
             (and
                 (forall ((N1 Node)) 
                     (not (grant_msg N1))
@@ -109,7 +109,7 @@
                     (not (unlock_msg N1))
                 )
             )
-            ;B
+            ;config2
             (and
                 held
                 (forall ((N1 Node))
@@ -131,7 +131,7 @@
                     (grant_msg N1)
                 )
             )
-            ;C
+            ;config3
             (and
                 held
                 (forall ((N1 Node))
@@ -153,7 +153,7 @@
                     (holds_lock N1)
                 )
             )
-            ;D
+            ;config4
             (and
                 held
                 (forall ((N1 Node))

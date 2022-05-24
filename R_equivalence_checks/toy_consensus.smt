@@ -62,10 +62,7 @@
             )
             (forall ((n node))
                 (exists ((v value))
-                    (or 
-                        (didNotVote n)
-                        (vote n v)
-                    )
+                    (or (didNotVote n) (vote n v))
                 )
             )
             (forall ((n node) (v1 value) (v2 value))
@@ -78,34 +75,33 @@
             (forall ((v value))
                 (exists ((q quorum))
                     (or
-                        (not (decision v)
+                        (not (decision v))
                         (chosenAt q v)
                     )
                 )
             )
             (forall ((n node) (q quorum) (v value))
-                (=>
-                    (member n q)
-                    (=>
-                        (chosenAt q v)
-                        (vote n v)    
-                    )
+                (or
+                    (not (member n q))
+                    (not (chosenAt q v))
+                    (vote n v)
                 )
             )
             (forall ((q quorum) (v1 value))
-                (=>
-                    (not (chosenAt q v1))
-                    (exists ((n node) (v2 value))
-                        (and
-                            (member n q)
-                            (or
+                (exists ((n node) (v2 value))
+                    (or
+                        (chosenAt q v1)
+                            (and
+                                (member n q)
                                 (didNotVote n)
+                            )
+                            (and
+                                (member n q)
                                 (and
                                     (not(= v1 v2))
                                     (vote n v2)
                                 )
                             )
-                        )
                     )
                 )
             )
@@ -113,7 +109,7 @@
 
         ;disjunction of configs
         (or
-            ;config 1
+            ;config1
             (and
                 (forall ((q quorum) (v value))
                     (not (chosenAt q v))
@@ -128,7 +124,7 @@
                     (not (vote n v))
                 )
             )
-            ;config 2
+            ;config2
             (and
                 (forall ((q quorum) (v value))
                     (not (chosenAt q v))
@@ -143,16 +139,14 @@
                     (vote n v)
                 )
                 (forall ((n node) (v1 value) (v2 value))
-                    (=>
-                        (and
-                            (vote n v1)
-                            (vote n v2)
-                        )
+                    (or
+                        (not (vote n v1))
+                        (not (vote n v2))
                         (= v1 v2)
                     )
                 )
             )
-            ;config 3
+            ;config3
             (and
                 (forall ((q quorum) (v value))
                     (not (chosenAt q v))
@@ -169,16 +163,14 @@
                     )
                 )
                 (forall ((n node) (v1 value) (v2 value))
-                    (=>
-                        (and
-                            (vote n v1)
-                            (vote n v2)
-                        )
+                    (or
+                        (not (vote n v1))
+                        (not (vote n v2))
                         (= v1 v2)
                     )
                 )
             )
-            ;config 4
+            ;config4
             (and
                 (exists ((q quorum) (v value))
                     (chosenAt q v)
@@ -195,16 +187,14 @@
                     )
                 )
                 (forall ((n node) (v1 value) (v2 value))
-                    (=>
-                        (and
-                            (vote n v1)
-                            (vote n v2)
-                        )
+                    (or
+                        (not (vote n v1))
+                        (not (vote n v2))
                         (= v1 v2)
                     )
                 )
             )
-            ;config 5
+            ;config5
             (and
                 (exists ((q quorum) (v value))
                     (chosenAt q v)
@@ -236,11 +226,9 @@
                     )
                 )
                 (forall ((n node) (v1 value) (v2 value))
-                    (=>
-                        (and
-                            (vote n v1)
-                            (vote n v2)
-                        )
+                    (or
+                        (not (vote n v1))
+                        (not (vote n v2))
                         (= v1 v2)
                     )
                 )

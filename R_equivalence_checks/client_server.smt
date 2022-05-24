@@ -39,6 +39,7 @@
 
     ;disjunction of configs
     (or
+        ;config1
         ;all locked
         (and
             (forall ((s Server))
@@ -49,6 +50,7 @@
             )
         )
 
+        ;config2
         ;at least one locked, at least one linked
         (and
             (exists ((c Client) (s Server))
@@ -80,6 +82,7 @@
             )
         )
 
+        ;config3
         ;all linked
         (and 
             (forall ((s Server)) (exists ((c Client))

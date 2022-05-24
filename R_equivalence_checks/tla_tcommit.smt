@@ -74,7 +74,7 @@
 
         ;Configs
         (or
-            ;1
+            ;config1
             (and
                 (forall ((R1 RM)) 
                     (working R1)
@@ -89,7 +89,7 @@
                     (not (prepared R1))
                 )
             )    
-            ;2
+            ;config2
             (and
                 (forall ((R1 RM)) 
                     (not (committed R1))
@@ -116,7 +116,7 @@
                     (not (working R1))
                 )
             )    
-            ;3
+            ;config3
             (and
                 (forall ((R1 RM)) 
                     (not (aborted R1))
@@ -143,7 +143,7 @@
                     (not (working R1))
                 )
             )    
-            ;4
+            ;config4
             (and
                 (forall ((R1 RM)) 
                     (not (committed R1))
@@ -183,7 +183,7 @@
                     (working R1)
                 )
             )    
-            ;5
+            ;config5
             (and
                 (forall ((R1 RM)) 
                     (aborted R1)
@@ -198,7 +198,7 @@
                     (not (working R1))
                 )
             )    
-            ;6
+            ;config6
             (and
                 (forall ((R1 RM)) 
                     (prepared R1)
@@ -213,7 +213,7 @@
                     (not (working R1))
                 )
             )    
-            ;7
+            ;config7
             (and
                 (forall ((R1 RM)) 
                     (not (committed R1))
@@ -240,7 +240,7 @@
                     (not (prepared R1))
                 )
             )    
-            ;8
+            ;config8
             (and
                 (forall ((R1 RM)) 
                     (not (aborted R1))
@@ -267,7 +267,7 @@
                     (not (prepared R1))
                 )
             )    
-            ;9
+            ;config9
             (and
                 (forall ((R1 RM)) 
                     (committed R1)
