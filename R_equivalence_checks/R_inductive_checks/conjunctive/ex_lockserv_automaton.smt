@@ -120,8 +120,9 @@
             (exists ((n Node))
                 (and
                     (lock_msg* n)
+                    (= held held*)
                     (forall ((n1 Node))
-                        (and
+                        (=>
                             (not (= n n1))
                             (unchanged n1)
                         )
@@ -135,8 +136,9 @@
                     (holds_lock n)
                     (not (holds_lock* n))
                     (unlock_msg* n)
+                    (= held held*)
                     (forall ((n1 Node))
-                        (and
+                        (=>
                             (not (= n n1))
                             (unchanged n1)
                         )
@@ -150,10 +152,10 @@
                     (lock_msg n)
                     (not held)
                     held*
-                    (lock_msg* n)
+                    (not(lock_msg* n))
                     (grant_msg* n)
                     (forall ((n1 Node))
-                        (and
+                        (=>
                             (not (= n n1))
                             (unchanged n1)
                         )
@@ -167,8 +169,9 @@
                     (grant_msg n)
                     (not (grant_msg* n))
                     (holds_lock* n)
+                    (= held held*)
                     (forall ((n1 Node))
-                        (and
+                        (=>
                             (not (= n n1))
                             (unchanged n1)
                         )
@@ -180,10 +183,10 @@
             (exists ((n Node))
                 (and
                     (unlock_msg n)
-                    held*
+                    (not held*)
                     (not (unlock_msg* n))
                     (forall ((n1 Node))
-                        (and
+                        (=>
                             (not (= n n1))
                             (unchanged n1)
                         )
